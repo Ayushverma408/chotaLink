@@ -8,6 +8,9 @@ dotenv.config()
 const app = express()
 const port = process.env.port || 6000
 
+app.use(express.json())
+
+
 app.get('/', (req, res) => { res.send("request recieved lessgoo!") })
 
 const Routes = require('./routes/urlroutes.js')

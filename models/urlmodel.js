@@ -5,7 +5,7 @@ const urlSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    shortUrl: {
+    chotaUrl: {
         type: String,
         required: true
     },
@@ -15,3 +15,5 @@ const urlSchema = new mongoose.Schema({
         required: true
     },
 })
+
+module.exports = mongoose.model('Url', urlSchema);
