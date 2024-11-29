@@ -16,4 +16,6 @@ const urlSchema = new mongoose.Schema({
     },
 })
 
+urlSchema.index({ chotaUrl: 1 }, { unique: true });
+
 module.exports = mongoose.model('Url', urlSchema);
