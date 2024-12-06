@@ -57,15 +57,27 @@ const createUniqueShortUrl = () => {
             res.status(500).json({ message: "Server Error!", error: err.message });
         }
     };
+
+const redirectkarochotaurl = async(req, res) => {
+    const {chotaurl} = req.body;
+    console.log(chotaurl)
     
-
-
-
-const redirectKaroChotaUrl = async(req, res) => {
-    res.send("this is created")
-} 
-
-
+    try{
+    const url = await url.findone({chotaurl})
+    console.log(url)
+    
+    if(url){
+        console.log(`redirecting to: ${chotaurl}`)
+        return res.redirect(url.originalurl)
+    }
+    else{
+        return res.status(400).json({message: `url not found ${chotaurl}`})
+    }
+}
+    catch(err){
+        res.status(500).json({message: "server error"})
+    } 
+}
 module.exports = {
   createChotaUrl,
   redirectKaroChotaUrl
