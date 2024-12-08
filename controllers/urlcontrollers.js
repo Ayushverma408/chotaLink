@@ -59,16 +59,16 @@ const createUniqueShortUrl = () => {
     };
 
 const redirectkarochotaurl = async(req, res) => {
-    const {chotaurl} = req.body;
+    const {chotaurl} = req.params;
     console.log(chotaurl)
     
     try{
-    const url = await url.findone({chotaurl})
+    const url = await Url.findOne({chotaUrl: chotaurl})
     console.log(url)
     
     if(url){
-        console.log(`redirecting to: ${chotaurl}`)
-        return res.redirect(url.originalurl)
+        console.log(`redirecting to: ${url.originalUrl}`)
+        return res.redirect(url.originalUrl)
     }
     else{
         return res.status(400).json({message: `url not found ${chotaurl}`})
@@ -80,5 +80,5 @@ const redirectkarochotaurl = async(req, res) => {
 }
 module.exports = {
   createChotaUrl,
-  redirectKaroChotaUrl
+  redirectkarochotaurl
 };

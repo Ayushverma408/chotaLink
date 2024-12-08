@@ -17,6 +17,10 @@ app.get('/', (req, res) => { res.send("request recieved lessgoo!") })
 const Routes = require('./routes/urlroutes.js')
 app.use('/api/', Routes)
 
+const { redirectkarochotaurl } = require('./controllers/urlcontrollers.js');
+app.get('/:chotaurl', redirectkarochotaurl);
+
+
 app.listen(port, () => {
     mongoose.connect(process.env.MONGO_URI).then((() => console.log('connected with mongodb'))).catch((err) => console.error('Failed to connect', err))
     console.log(`we running: ${port}`)

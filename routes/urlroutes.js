@@ -2,10 +2,10 @@ const express = require('express')
 
 const router = express.Router()
 
-const {createChotaUrl, redirectKaroChotaUrl} = require('../controllers/urlcontrollers')
+const {createChotaUrl, redirectkarochotaurl} = require('../controllers/urlcontrollers')
 
 router.post('/chotakro', createChotaUrl)
-router.post('/redirectkro', redirectKaroChotaUrl)
+// router.post('/redirectkro', redirectkarochotaurl)
 module.exports = router
 
 
