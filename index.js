@@ -14,8 +14,12 @@ app.use(cors({ origin: 'http://localhost:3000' })); // Allow requests from your 
 
 app.get('/', (req, res) => { res.send("request recieved lessgoo!") })
 
-const Routes = require('./routes/urlroutes.js')
-app.use('/api/', Routes)
+const urlRoutes = require('./routes/urlroutes.js')
+app.use('/', urlRoutes)
+
+const authRoutes = require('./routes/authroutes.js')
+app.use('/', authRoutes)
+
 
 const { redirectkarochotaurl } = require('./controllers/urlcontrollers.js');
 app.get('/:chotaurl', redirectkarochotaurl);
