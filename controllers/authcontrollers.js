@@ -1,8 +1,10 @@
+const { log } = require('console');
 const User = require('../models/usermodel');
 const jwt = require('jsonwebtoken');
 
 const signup = async(req, res) => {
      try {
+          console.log("inside signup api");          
           const{ username, password} = req.body
 
           const existingUser = await User.findOne({username})
@@ -31,6 +33,7 @@ const signup = async(req, res) => {
 }
 const login = async(req, res) => {
      try{
+          console.log("inside login api");          
           const {username, password} = req.body
           const user = await User.findOne({username})
           if(!user) {

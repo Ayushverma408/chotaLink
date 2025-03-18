@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const { error } = require('console')
 const cors = require('cors');
+
 dotenv.config()
 
 const app = express()
